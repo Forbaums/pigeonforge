@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pigeon Forge Sweet 16 — April 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #FAF7F2;
+    --warm-white: #FFFEF9;
+    --dark: #1C1A17;
+    --brown: #4A3728;
+    --sage: #6B7C5E;
+    --sage-light: #EDF0EA;
+    --gold: #C4922A;
+    --gold-light: #F7EDD8;
+    --rust: #B85C38;
+    --rust-light: #F5E8E2;
+    --blue: #3D6B8A;
+    --blue-light: #E4EEF4;
+    --pink: #B5607A;
+    --pink-light: #F5E8ED;
+    --border: rgba(74,55,40,0.12);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(--dark); font-size: 15px; line-height: 1.7; }
+
+  /* SETUP BANNER */
+  #setup-banner {
+    background: #1C1A17;
+    color: #FAF7F2;
+    padding: 20px 24px;
+    text-align: center;
+    font-size: 14px;
+    display: block;
+  }
+  #setup-banner strong { color: #E8C97A; }
+  #setup-banner a { color: #E8C97A; }
+  .setup-input-row { display: flex; gap: 10px; justify-content: center; margin-top: 12px; flex-wrap: wrap; }
+  .setup-input-row input {
+    padding: 8px 14px; border-radius: 8px; border: 1px solid rgba(250,247,242,0.25);
+    background: rgba(250,247,242,0.1); color: #FAF7F2; font-family: 'DM Sans', sans-serif;
+    font-size: 13px; width: 320px;
+  }
+  .setup-input-row input::placeholder { color: rgba(250,247,242,0.4); }
+  .setup-input-row input:focus { outline: none; border-color: #E8C97A; }
+  .setup-btn {
+    padding: 8px 20px; background: #C4922A; color: #1C1A17; border: none;
+    border-radius: 8px; font-family: 'DM Sans', sans-serif; font-weight: 500;
+    font-size: 13px; cursor: pointer;
+  }
+  .setup-btn:hover { opacity: 0.85; }
+  #setup-status { margin-top: 8px; font-size: 13px; color: rgba(250,247,242,0.6); min-height: 18px; }
+
+  /* HERO */
+  .hero { background: var(--dark); color: var(--cream); padding: 64px 24px 48px; text-align: center; position: relative; overflow: hidden; }
+  .hero::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: radial-gradient(ellipse at 60% 0%, rgba(196,146,42,0.18) 0%, transparent 60%), radial-gradient(ellipse at 20% 100%, rgba(107,124,94,0.15) 0%, transparent 50%); }
+  .hero-badge { display: inline-block; background: rgba(196,146,42,0.2); color: #E8C97A; border: 1px solid rgba(196,146,42,0.35); border-radius: 40px; font-size: 12px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; padding: 6px 18px; margin-bottom: 20px; position: relative; }
+  .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(36px, 8vw, 64px); font-weight: 700; line-height: 1.1; margin-bottom: 8px; position: relative; }
+  .hero h1 em { font-style: italic; color: #E8C97A; }
+  .hero-sub { font-size: 15px; color: rgba(250,247,242,0.65); margin-bottom: 28px; position: relative; }
+  .hero-meta { display: flex; justify-content: center; gap: 24px; flex-wrap: wrap; position: relative; }
+  .hero-pill { background: rgba(250,247,242,0.1); border: 1px solid rgba(250,247,242,0.18); border-radius: 30px; padding: 8px 18px; font-size: 13px; color: rgba(250,247,242,0.85); }
+  .hero-pill strong { color: var(--cream); }
+
+  /* INTRO */
+  .intro-note { max-width: 700px; margin: 40px auto; padding: 0 24px; text-align: center; }
+  .intro-note p { font-size: 16px; color: var(--brown); line-height: 1.8; }
+  .intro-note .survey-note { margin-top: 20px; background: var(--gold-light); border: 1px solid rgba(196,146,42,0.25); border-radius: 12px; padding: 16px 20px; font-size: 14px; color: var(--brown); }
+
+  .section-label { text-align: center; font-size: 11px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--sage); margin-bottom: 6px; }
+  .section-title { font-family: 'Playfair Display', serif; font-size: 28px; text-align: center; color: var(--dark); margin-bottom: 32px; }
+  .container { max-width: 860px; margin: 0 auto; padding: 0 20px; }
+  .days-section { padding: 20px 0 48px; }
+  .day-block { margin-bottom: 32px; }
+  .day-header-row { display: flex; align-items: center; gap: 16px; margin-bottom: 16px; }
+  .day-number { width: 48px; height: 48px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: 'Playfair Display', serif; font-size: 18px; font-weight: 700; flex-shrink: 0; }
+  .day-number.drive { background: var(--blue-light); color: var(--blue); }
+  .day-number.park { background: var(--sage-light); color: var(--sage); }
+  .day-number.gburg { background: var(--rust-light); color: var(--rust); }
+  .day-number.island { background: var(--gold-light); color: var(--gold); }
+  .day-number.home { background: #EEE; color: #666; }
+  .day-meta { flex: 1; }
+  .day-date-label { font-size: 12px; color: var(--sage); font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; }
+  .day-title { font-family: 'Playfair Display', serif; font-size: 20px; color: var(--dark); }
+  .day-card-inner { background: var(--warm-white); border: 1px solid var(--border); border-radius: 16px; overflow: hidden; }
+  .stop { display: grid; grid-template-columns: 80px 1fr; border-bottom: 1px solid var(--border); }
+  .stop:last-child { border-bottom: none; }
+  .stop-time { padding: 16px 12px 16px 20px; font-size: 12px; color: var(--sage); font-weight: 500; padding-top: 18px; border-right: 1px solid var(--border); background: rgba(107,124,94,0.03); }
+  .stop-content { padding: 16px 20px; }
+  .stop-title { font-size: 15px; font-weight: 500; color: var(--dark); margin-bottom: 4px; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+  .stop-desc { font-size: 13px; color: #6B6459; line-height: 1.6; }
+  .tag { display: inline-block; font-size: 10px; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; padding: 2px 8px; border-radius: 20px; }
+  .tag-tip { background: var(--sage-light); color: var(--sage); }
+  .tag-deal { background: var(--gold-light); color: var(--gold); }
+  .tag-bday { background: var(--pink-light); color: var(--pink); }
+  .tag-dog { background: #E8F5E8; color: #3A7A3A; }
+  .tag-new { background: var(--rust-light); color: var(--rust); }
+  .tip-bar { background: var(--gold-light); border-top: 1px solid rgba(196,146,42,0.2); padding: 12px 20px; font-size: 13px; color: var(--brown); display: flex; gap: 10px; align-items: flex-start; }
+  .tip-bar::before { content: '★'; color: var(--gold); flex-shrink: 0; margin-top: 1px; }
+
+  /* VOTE SECTION */
+  .vote-section { background: var(--dark); color: var(--cream); padding: 56px 24px; }
+  .vote-section .section-label { color: rgba(232,201,122,0.7); }
+  .vote-section .section-title { color: var(--cream); margin-bottom: 8px; }
+  .vote-subtitle { color: rgba(250,247,242,0.55); font-size: 14px; text-align: center; margin-bottom: 28px; }
+
+  /* Name picker */
+  .name-row { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; margin-bottom: 28px; }
+  .name-btn { padding: 8px 20px; border: 1px solid rgba(250,247,242,0.2); background: transparent; color: rgba(250,247,242,0.7); border-radius: 30px; font-family: 'DM Sans', sans-serif; font-size: 14px; cursor: pointer; transition: all 0.18s; }
+  .name-btn:hover { background: rgba(250,247,242,0.1); color: var(--cream); }
+  .name-btn.active { background: rgba(196,146,42,0.25); border-color: #C4922A; color: #E8C97A; }
+
+  .vote-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 12px; max-width: 800px; margin: 0 auto 28px; }
+  .vote-item { background: rgba(250,247,242,0.07); border: 1px solid rgba(250,247,242,0.12); border-radius: 12px; padding: 14px 16px; }
+  .vote-item-name { font-size: 14px; font-weight: 500; color: var(--cream); margin-bottom: 3px; }
+  .vote-item-day { font-size: 12px; color: rgba(250,247,242,0.4); margin-bottom: 10px; }
+  .vote-buttons { display: flex; gap: 6px; }
+  .vote-btn { flex: 1; border: 1px solid rgba(250,247,242,0.18); background: transparent; color: rgba(250,247,242,0.65); border-radius: 8px; padding: 6px 4px; font-size: 12px; cursor: pointer; font-family: 'DM Sans', sans-serif; transition: all 0.15s; }
+  .vote-btn:hover { background: rgba(250,247,242,0.1); color: var(--cream); }
+  .vote-btn.yes.active { background: rgba(107,124,94,0.4); border-color: #6B7C5E; color: #B8D4A8; }
+  .vote-btn.maybe.active { background: rgba(196,146,42,0.3); border-color: #C4922A; color: #E8C97A; }
+  .vote-btn.no.active { background: rgba(184,92,56,0.3); border-color: #B85C38; color: #F0A882; }
+
+  .vote-tally { display: flex; gap: 4px; margin-top: 8px; flex-wrap: wrap; min-height: 20px; }
+  .tally-chip { font-size: 11px; padding: 1px 7px; border-radius: 10px; }
+  .tally-yes { background: rgba(107,124,94,0.35); color: #B8D4A8; }
+  .tally-maybe { background: rgba(196,146,42,0.3); color: #E8C97A; }
+  .tally-no { background: rgba(184,92,56,0.3); color: #F0A882; }
+
+  .submit-row { text-align: center; margin-top: 8px; }
+  .submit-btn { padding: 12px 32px; background: var(--gold); color: var(--dark); border: none; border-radius: 8px; font-family: 'DM Sans', sans-serif; font-weight: 500; font-size: 15px; cursor: pointer; transition: opacity 0.2s; }
+  .submit-btn:hover { opacity: 0.85; }
+  #vote-status { text-align: center; margin-top: 12px; font-size: 13px; color: rgba(250,247,242,0.5); min-height: 20px; }
+
+  /* RESULTS PANEL */
+  .results-panel { max-width: 760px; margin: 40px auto 0; }
+  .results-toggle { display: block; text-align: center; margin: 0 auto 20px; background: transparent; border: 1px solid rgba(250,247,242,0.2); color: rgba(250,247,242,0.7); padding: 10px 28px; border-radius: 8px; font-family: 'DM Sans', sans-serif; font-size: 14px; cursor: pointer; }
+  .results-toggle:hover { background: rgba(250,247,242,0.07); }
+  #results-content { display: none; }
+  #results-content.visible { display: block; }
+
+  .result-row { background: rgba(250,247,242,0.06); border: 1px solid rgba(250,247,242,0.1); border-radius: 10px; padding: 12px 16px; margin-bottom: 10px; }
+  .result-activity { font-size: 14px; font-weight: 500; color: var(--cream); margin-bottom: 8px; }
+  .result-bar-row { display: flex; align-items: center; gap: 10px; margin-bottom: 4px; font-size: 12px; }
+  .result-label { width: 44px; color: rgba(250,247,242,0.55); flex-shrink: 0; }
+  .result-bar-bg { flex: 1; height: 8px; background: rgba(250,247,242,0.1); border-radius: 4px; overflow: hidden; }
+  .result-bar-fill { height: 100%; border-radius: 4px; transition: width 0.5s ease; }
+  .fill-yes { background: #6B7C5E; }
+  .fill-maybe { background: #C4922A; }
+  .fill-no { background: #B85C38; }
+  .result-count { width: 24px; text-align: right; color: rgba(250,247,242,0.5); flex-shrink: 0; }
+  .result-voters { font-size: 11px; color: rgba(250,247,242,0.35); margin-top: 4px; }
+
+  .divider { border: none; border-top: 1px solid var(--border); margin: 0; }
+
+  /* DEALS */
+  .deals-section { padding: 48px 0; }
+  .deals-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; }
+  .deal-card { background: var(--warm-white); border: 1px solid var(--border); border-radius: 14px; padding: 20px; }
+  .deal-amount { font-family: 'Playfair Display', serif; font-size: 28px; font-weight: 700; color: var(--gold); margin-bottom: 4px; }
+  .deal-what { font-size: 14px; font-weight: 500; color: var(--dark); margin-bottom: 6px; }
+  .deal-how { font-size: 13px; color: #6B6459; line-height: 1.5; }
+
+  /* BOOK NOW */
+  .book-section { background: var(--sage-light); border-top: 1px solid rgba(107,124,94,0.2); border-bottom: 1px solid rgba(107,124,94,0.2); padding: 40px 24px; }
+  .book-list { max-width: 600px; margin: 0 auto; }
+  .book-item { display: flex; gap: 16px; align-items: flex-start; padding: 14px 0; border-bottom: 1px solid rgba(107,124,94,0.2); }
+  .book-item:last-child { border-bottom: none; }
+  .book-num { width: 28px; height: 28px; background: var(--sage); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 500; flex-shrink: 0; margin-top: 2px; }
+  .book-text { flex: 1; }
+  .book-name { font-size: 14px; font-weight: 500; color: var(--dark); }
+  .book-note { font-size: 13px; color: var(--sage); }
+  .book-urgency { font-size: 11px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.08em; color: var(--rust); margin-top: 2px; }
+
+  footer { text-align: center; padding: 32px 24px; font-size: 13px; color: #9B9088; }
+  footer strong { color: var(--brown); }
+
+  @media (max-width: 500px) {
+    .stop { grid-template-columns: 60px 1fr; }
+    .stop-time { padding: 14px 8px 14px 12px; font-size: 11px; }
+    .vote-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════
+     SETUP BANNER — only visible before config
+     ═══════════════════════════════════════════ -->
+<div id="setup-banner">
+  <div><strong>One-time setup (for the trip organizer only):</strong> Create a free account at <a href="https://jsonbin.io" target="_blank">jsonbin.io</a>, copy your API key, paste it below, then click "Initialize" — takes about 60 seconds. After that, just share this file with everyone!</div>
+  <div class="setup-input-row">
+    <input type="text" id="api-key-input" placeholder="Paste your JSONBin Master API key here..." />
+    <button class="setup-btn" onclick="initializeBin()">Initialize Voting</button>
+  </div>
+  <div id="setup-status"></div>
+  <div style="margin-top:10px;font-size:12px;color:rgba(250,247,242,0.4);">Already set up? <a href="#" onclick="skipSetup()" style="color:rgba(232,201,122,0.7);">Click here to go straight to the page.</a></div>
+</div>
+
+<!-- ═══════════ HERO ═══════════ -->
+<div class="hero">
+  <div class="hero-badge">Family Trip · April 2026</div>
+  <h1>Pigeon Forge<br><em>Sweet 16</em></h1>
+  <p class="hero-sub">A Smoky Mountain adventure for three generations — and Rosie</p>
+  <div class="hero-meta">
+    <div class="hero-pill"><strong>April 15–19</strong> · 5 days</div>
+    <div class="hero-pill"><strong>Sarasota, FL</strong> → Pigeon Forge, TN</div>
+    <div class="hero-pill">7 people + <strong>Rosie</strong></div>
+  </div>
+</div>
+
+<div class="intro-note">
+  <p>We've got our Airbnb locked in — now let's plan the fun! Here's everything on the table for our Smoky Mountain sweet 16 trip. Read through the days, then scroll down to cast your votes on the activities!</p>
+  <div class="survey-note">
+    <strong>Your input needed!</strong> Scroll to the bottom to vote on which activities you're most excited about. Everyone's votes show up in real time so we can see what the whole crew wants.
+  </div>
+</div>
+
+<!-- ═══════════ ITINERARY ═══════════ -->
+<div class="container days-section">
+  <p class="section-label">The journey</p>
+  <h2 class="section-title">Day by Day</h2>
+
+  <!-- DAY 1 -->
+  <div class="day-block">
+    <div class="day-header-row">
+      <div class="day-number drive">1</div>
+      <div class="day-meta">
+        <div class="day-date-label">Wednesday, April 15</div>
+        <div class="day-title">Drive Day — Sarasota to Pigeon Forge</div>
+      </div>
+    </div>
+    <div class="day-card-inner">
+      <div class="stop"><div class="stop-time">5:30 am</div><div class="stop-content"><div class="stop-title">Depart Sarasota</div><div class="stop-desc">Early start beats Tampa traffic and sets us up to cruise through Atlanta mid-morning before it gets busy.</div></div></div>
+      <div class="stop"><div class="stop-time">~10 am</div><div class="stop-content"><div class="stop-title">Atlanta pass-through on I-75</div><div class="stop-desc">Don't stop — just keep moving. Fill gas before the city. Mid-morning is the sweet spot to avoid the I-285 backup.</div></div></div>
+      <div class="stop"><div class="stop-time">~1 pm</div><div class="stop-content"><div class="stop-title">Ruby Falls — Chattanooga <span class="tag tag-new">Must-see!</span></div><div class="stop-desc">America's tallest underground waterfall, 1,120 feet inside Lookout Mountain. A stunning cave experience the whole group will remember. Book timed tickets at rubyfalls.com in advance — walk-ups often sell out. Plan about 1.5 hours inside.</div></div></div>
+      <div class="stop"><div class="stop-time">~3 pm</div><div class="stop-content"><div class="stop-title">Rock City on Lookout Mountain <span class="tag tag-tip">Optional</span></div><div class="stop-desc">Right next door to Ruby Falls — ancient rock formations, gardens, and a 7-state view on a clear day. 45 extra minutes. Easy to add on or skip depending on energy levels.</div></div></div>
+      <div class="stop"><div class="stop-time">~5:30 pm</div><div class="stop-content"><div class="stop-title">Arrive Pigeon Forge — check in to Airbnb</div><div class="stop-desc">Settle in, walk Rosie, grab groceries for breakfasts. Easy first night — grill at the cabin or grab Bennett's Pit Bar-B-Que nearby.</div></div></div>
+      <div class="tip-bar">Scenic shortcut: Take Exit 81 at Lenoir City through Townsend — far more scenic and less congested than I-40/441 through Sevierville.</div>
+    </div>
+  </div>
+
+  <!-- DAY 2 -->
+  <div class="day-block">
+    <div class="day-header-row">
+      <div class="day-number park">2</div>
+      <div class="day-meta">
+        <div class="day-date-label">Thursday, April 16</div>
+        <div class="day-title">Dollywood — All Day at the Best Theme Park in America</div>
+      </div>
+    </div>
+    <div class="day-card-inner">
+      <div class="stop"><div class="stop-time">7:30 am</div><div class="stop-content"><div class="stop-title">Breakfast at Airbnb</div><div class="stop-desc">Eat before you go — food inside Dollywood is pricey. Pack snacks and refillable water bottles.</div></div></div>
+      <div class="stop"><div class="stop-time">9:00 am</div><div class="stop-content"><div class="stop-title">Gates open — arrive first <span class="tag tag-tip">Pro tip</span></div><div class="stop-desc">Hit Big Bear Mountain and Lightning Rod immediately — lines are shortest at open. The TimeSaver pass add-on is worth it for a group our size.</div></div></div>
+      <div class="stop"><div class="stop-time">9:00 am</div><div class="stop-content"><div class="stop-title">Rosie at Doggywood <span class="tag tag-dog">Rosie</span></div><div class="stop-desc">Dollywood's own pet care facility right at the entrance. Staff look after Rosie while we enjoy the park. Bring proof of vaccines.</div></div></div>
+      <div class="stop"><div class="stop-time">All day</div><div class="stop-content"><div class="stop-title">Flower &amp; Food Festival <span class="tag tag-new">April Special</span></div><div class="stop-desc">Our timing is perfect — April is the Flower &amp; Food Festival with 500,000 blooms and special food booths. Smaller spring crowds than summer.</div></div></div>
+      <div class="stop"><div class="stop-time">Evening</div><div class="stop-content"><div class="stop-title">Easy dinner heading back</div><div class="stop-desc">Calhoun's BBQ nearby is great for a no-fuss group dinner after a big park day.</div></div></div>
+      <div class="tip-bar">Money tip: Buy Dollywood tickets online at dollywood.com using "Pick-A-Day" pricing — Thursday April is one of the cheaper options. Bundle with Stampede for a package discount.</div>
+    </div>
+  </div>
+
+  <!-- DAY 3 -->
+  <div class="day-block">
+    <div class="day-header-row">
+      <div class="day-number gburg">3</div>
+      <div class="day-meta">
+        <div class="day-date-label">Friday, April 17</div>
+        <div class="day-title">Gatlinburg Adventures + Stampede Dinner Show</div>
+      </div>
+    </div>
+    <div class="day-card-inner">
+      <div class="stop"><div class="stop-time">9:00 am</div><div class="stop-content"><div class="stop-title">Anakeesta — mountain adventure park</div><div class="stop-desc">Gondola ride up. Teens hit the Mountain Coaster, zipline &amp; Treetop Skywalk. Grandmothers enjoy the views, warm drinks, and beautiful overlook decks. Note: not dog-friendly, Rosie stays at the cabin this morning.</div></div></div>
+      <div class="stop"><div class="stop-time">12:30 pm</div><div class="stop-content"><div class="stop-title">Lunch + stroll on the Gatlinburg Parkway</div><div class="stop-desc">Crockett's Breakfast Camp (open all day) or No Way Jose's Cantina are great picks. Walk the strip — candy shops, taffy pulling, fudge, and all the fun tourist chaos.</div></div></div>
+      <div class="stop"><div class="stop-time">2:00 pm</div><div class="stop-content"><div class="stop-title">Ripley's Aquarium of the Smokies</div><div class="stop-desc">One of the best aquariums in the Southeast. The shark tunnel walkway is a highlight for every age. Budget about 1.5–2 hours.</div></div></div>
+      <div class="stop"><div class="stop-time">5:30 pm</div><div class="stop-content"><div class="stop-title">Stampede Pre-show Saloon <span class="tag tag-tip">Arrive early!</span></div><div class="stop-desc">Live bluegrass in the Saloon + meet the horses up close at the stables before the main show.</div></div></div>
+      <div class="stop"><div class="stop-time">7:00 pm</div><div class="stop-content"><div class="stop-title">Dolly Parton's Stampede <span class="tag tag-new">New in 2026</span></div><div class="stop-desc">4-course feast + 32 horses + trick riding + the brand-new "Butterfly Dreams" aerialist segment + patriotic finale. Vegetarian/gluten-free available on request.</div></div></div>
+      <div class="tip-bar">Best deal: Book through Tripster.com — automatic discount (up to $6/ticket), no code needed, free cancellation up to 2 days before.</div>
+    </div>
+  </div>
+
+  <!-- DAY 4 -->
+  <div class="day-block">
+    <div class="day-header-row">
+      <div class="day-number island">4</div>
+      <div class="day-meta">
+        <div class="day-date-label">Saturday, April 18</div>
+        <div class="day-title">The Island + Sweet 16 Birthday Dinner</div>
+      </div>
+    </div>
+    <div class="day-card-inner">
+      <div class="stop"><div class="stop-time">9:00 am</div><div class="stop-content"><div class="stop-title">Pigeon Forge Snow — Indoor Snow Park <span class="tag tag-new">Florida kids!</span></div><div class="stop-desc">Real snow, 12 tubing lanes, snowball fights — in April. The grandmothers can watch and laugh from the warm viewing area while the kids lose their minds in the snow.</div></div></div>
+      <div class="stop"><div class="stop-time">11:30 am</div><div class="stop-content"><div class="stop-title">The Island at Pigeon Forge — with Rosie! <span class="tag tag-dog">Rosie welcome</span></div><div class="stop-desc">Rosie is welcome on a leash in the outdoor plaza. Watch the fountain show, browse the shops, have lunch at Paula Deen's Family Kitchen or the outdoor patios. Ole Smoky Moonshine has live bluegrass at the outdoor stage.</div></div></div>
+      <div class="stop"><div class="stop-time">2:00 pm</div><div class="stop-content"><div class="stop-title">Great Smoky Mountain Wheel — Rosie too! <span class="tag tag-dog">Rosie welcome</span></div><div class="stop-desc">200-foot observation wheel with climate-controlled gondolas. Leashed pets can ride! Gorgeous mountain views and great group photos.</div></div></div>
+      <div class="stop"><div class="stop-time">3:00 pm</div><div class="stop-content"><div class="stop-title">MagiQuest + Arcade for the teens</div><div class="stop-desc">Wand-based scavenger hunt, mirror maze, and arcade. Adults can sit at the rocking chairs by the fountain or browse Ole Smoky while the kids have a blast.</div></div></div>
+      <div class="stop"><div class="stop-time">7:00 pm</div><div class="stop-content"><div class="stop-title">The Peddler Steakhouse — Birthday Dinner <span class="tag tag-bday">Sweet 16</span></div><div class="stop-desc">Gatlinburg's finest since 1976. You choose your cut from a butcher display, watch it grilled over flames — with Little Pigeon River views from every table. The perfect celebratory dinner. <strong>Call (865) 436-5794 to reserve ASAP for a party of 7 on a Saturday.</strong></div></div></div>
+      <div class="tip-bar">Birthday magic: Tell The Peddler it's a sweet 16 when you book — they're known for making special occasions feel truly memorable.</div>
+    </div>
+  </div>
+
+  <!-- DAY 5 -->
+  <div class="day-block">
+    <div class="day-header-row">
+      <div class="day-number home">5</div>
+      <div class="day-meta">
+        <div class="day-date-label">Sunday, April 19</div>
+        <div class="day-title">Morning Hike + Drive Home</div>
+      </div>
+    </div>
+    <div class="day-card-inner">
+      <div class="stop"><div class="stop-time">7:30 am</div><div class="stop-content"><div class="stop-title">Gatlinburg Trail with Rosie <span class="tag tag-dog">Rosie welcome</span></div><div class="stop-desc">One of the only dog-friendly trails in Great Smoky Mountains National Park. Flat 1.9-mile path along the Little Pigeon River. Peaceful, beautiful, and free. Perfect final morning.</div></div></div>
+      <div class="stop"><div class="stop-time">9:30 am</div><div class="stop-content"><div class="stop-title">Farewell breakfast — Crockett's Breakfast Camp</div><div class="stop-desc">The legendary Gatlinburg breakfast. "Aretha Frankenstein" pancakes are massive and ridiculous in the best way. Go early before the line builds.</div></div></div>
+      <div class="stop"><div class="stop-time">11:00 am</div><div class="stop-content"><div class="stop-title">Head south on I-75 — ~10.5 hrs home</div><div class="stop-desc">Sweet 16 complete. Rosie is exhausted. Everyone has memories for life.</div></div></div>
+    </div>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- DEALS -->
+<div class="deals-section">
+  <div class="container">
+    <p class="section-label">Smart planning</p>
+    <h2 class="section-title">Deals &amp; Savings</h2>
+    <div class="deals-grid">
+      <div class="deal-card"><div class="deal-amount">Save $6+</div><div class="deal-what">Per Stampede ticket</div><div class="deal-how">Book through Tripster.com — automatic discount, no code needed, free cancellation up to 2 days before.</div></div>
+      <div class="deal-card"><div class="deal-amount">~$50</div><div class="deal-what">Dollywood Pick-A-Day savings</div><div class="deal-how">Buy on dollywood.com and select your date — mid-week April dates are significantly cheaper than gate price.</div></div>
+      <div class="deal-card"><div class="deal-amount">Free</div><div class="deal-what">National Park entry</div><div class="deal-how">Great Smoky Mountains has no entry fee — just pay the per-vehicle parking pass if needed.</div></div>
+      <div class="deal-card"><div class="deal-amount">$3 Off</div><div class="deal-what">Stampede adult tickets</div><div class="deal-how">Print the coupon from mypigeonforge.com. Also ask the Airbnb host — many have local discount books at check-in.</div></div>
+    </div>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- ═══════════ VOTE SECTION ═══════════ -->
+<div class="vote-section">
+  <p class="section-label">Your input matters</p>
+  <h2 class="section-title">Vote on the Activities</h2>
+  <p class="vote-subtitle">Pick your name, vote on each activity, then hit Submit. Everyone's votes update in real time!</p>
+
+  <div id="vote-loading" style="text-align:center;color:rgba(250,247,242,0.4);font-size:14px;padding:20px 0;">Loading votes...</div>
+  <div id="vote-ui" style="display:none;">
+    <div class="name-row" id="name-row"></div>
+    <div class="vote-grid" id="vote-grid"></div>
+    <div class="submit-row">
+      <button class="submit-btn" onclick="submitVotes()">Submit My Votes</button>
+    </div>
+    <div id="vote-status"></div>
+  </div>
+
+  <div class="results-panel" id="results-panel" style="display:none;">
+    <button class="results-toggle" onclick="toggleResults()">See everyone's votes</button>
+    <div id="results-content">
+      <div id="results-inner"></div>
+    </div>
+  </div>
+</div>
+
+<!-- BOOK NOW -->
+<div class="book-section">
+  <div class="container">
+    <p class="section-label" style="color: var(--sage);">Don't wait</p>
+    <h2 class="section-title">Book These Right Now</h2>
+    <div class="book-list">
+      <div class="book-item"><div class="book-num">1</div><div class="book-text"><div class="book-name">The Peddler Steakhouse — Birthday Dinner</div><div class="book-note">Call (865) 436-5794 or book at thepeddlergatlinburg.com</div><div class="book-urgency">Urgent — Saturday nights for 7 fill up fast</div></div></div>
+      <div class="book-item"><div class="book-num">2</div><div class="book-text"><div class="book-name">Dolly Parton's Stampede — Friday show</div><div class="book-note">Book at Tripster.com for automatic discount + free cancellation</div><div class="book-urgency">Popular — Friday April 17 shows sell out weeks ahead</div></div></div>
+      <div class="book-item"><div class="book-num">3</div><div class="book-text"><div class="book-name">Ruby Falls — Chattanooga</div><div class="book-note">Book timed tickets at rubyfalls.com in advance</div><div class="book-urgency">Timed entry — walk-ups often unavailable</div></div></div>
+      <div class="book-item"><div class="book-num">4</div><div class="book-text"><div class="book-name">Dollywood Tickets — Pick-A-Day</div><div class="book-note">Buy at dollywood.com using the date calendar for savings</div><div class="book-urgency">Buy early — prices increase closer to the date</div></div></div>
+      <div class="book-item"><div class="book-num">5</div><div class="book-text"><div class="book-name">Doggywood — confirm Rosie's requirements</div><div class="book-note">Call Dollywood at (800) 365-5996 to confirm vaccine requirements</div><div class="book-urgency">Rosie needs proof of current vaccines</div></div></div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <p>Made with love for <strong>the whole family</strong> (and Rosie) · Pigeon Forge Sweet 16 · April 2026</p>
+</footer>
+
+<script>
+// ─── CONFIG ─────────────────────────────────────────────────
+// These get saved to localStorage after setup
+const STORAGE_KEY = 'pf_sweet16_config';
+const NAMES = ['Nate', 'Jamie', 'Maia', 'Aiden', 'Aunt Holly', 'Grandma Sue', 'Granny'];
+const ACTIVITIES = [
+  { name: 'Ruby Falls (Chattanooga cave)', day: 'Day 1 · Drive' },
+  { name: 'Rock City (optional add-on)', day: 'Day 1 · Drive' },
+  { name: 'Dollywood all day', day: 'Day 2 · Thu' },
+  { name: 'Doggywood for Rosie', day: 'Day 2 · Thu' },
+  { name: 'Anakeesta (coaster + gondola)', day: 'Day 3 · Fri' },
+  { name: "Ripley's Aquarium", day: 'Day 3 · Fri' },
+  { name: "Dolly Parton's Stampede", day: 'Day 3 · Fri' },
+  { name: 'Pigeon Forge Snow (indoor snow!)', day: 'Day 4 · Sat' },
+  { name: 'The Island + Fountain Show', day: 'Day 4 · Sat' },
+  { name: 'Great Smoky Mtn Wheel', day: 'Day 4 · Sat' },
+  { name: 'MagiQuest + Arcade', day: 'Day 4 · Sat' },
+  { name: 'The Peddler — Birthday Dinner', day: 'Day 4 · Sat' },
+  { name: 'Gatlinburg Trail hike with Rosie', day: 'Day 5 · Sun' },
+  { name: "Crockett's Breakfast Camp", day: 'Day 5 · Sun' },
+];
+
+// ─── STATE ──────────────────────────────────────────────────
+let config = null; // { apiKey, binId }
+let allVotes = {}; // { "Name": { 0: 'yes', 1: 'maybe', ... } }
+let currentName = null;
+let myVotes = {}; // current session votes
+
+// ─── INIT ────────────────────────────────────────────────────
+window.addEventListener('DOMContentLoaded', () => {
+  config = loadConfig();
+  if (config) {
+    document.getElementById('setup-banner').style.display = 'none';
+    loadVotesAndRender();
+  } else {
+    document.getElementById('vote-loading').textContent = 'Set up voting using the banner above to get started.';
+  }
+});
+
+function loadConfig() {
+  try { return JSON.parse(localStorage.getItem(STORAGE_KEY)); } catch(e) { return null; }
+}
+function saveConfig(c) {
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(c));
+}
+
+// ─── SETUP ───────────────────────────────────────────────────
+async function initializeBin() {
+  const key = document.getElementById('api-key-input').value.trim();
+  if (!key) { setStatus('Please paste your API key first.'); return; }
+  setStatus('Creating shared voting data...');
+  try {
+    const initialData = { votes: {} };
+    const res = await fetch('https://api.jsonbin.io/v3/b', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'X-Master-Key': key, 'X-Bin-Name': 'PF Sweet 16 Votes', 'X-Bin-Private': 'false' },
+      body: JSON.stringify(initialData)
+    });
+    const data = await res.json();
+    if (!data.metadata || !data.metadata.id) { setStatus('Error: ' + JSON.stringify(data)); return; }
+    config = { apiKey: key, binId: data.metadata.id };
+    saveConfig(config);
+    setStatus('Done! Bin ID: ' + config.binId + ' — reload the page to share with family!');
+    setTimeout(() => {
+      document.getElementById('setup-banner').style.display = 'none';
+      loadVotesAndRender();
+    }, 2000);
+  } catch(e) { setStatus('Error: ' + e.message); }
+}
+
+function skipSetup() {
+  document.getElementById('setup-banner').style.display = 'none';
+  document.getElementById('vote-loading').textContent = 'Voting not yet set up. Ask the trip organizer to initialize it!';
+}
+function setStatus(msg) { document.getElementById('setup-status').textContent = msg; }
+
+// ─── DATA ─────────────────────────────────────────────────────
+async function loadVotesAndRender() {
+  if (!config) return;
+  try {
+    const res = await fetch('https://api.jsonbin.io/v3/b/' + config.binId + '/latest', {
+      headers: { 'X-Master-Key': config.apiKey }
+    });
+    const data = await res.json();
+    allVotes = (data.record && data.record.votes) ? data.record.votes : {};
+  } catch(e) { allVotes = {}; }
+  renderVoteUI();
+  renderResults();
+  document.getElementById('vote-loading').style.display = 'none';
+  document.getElementById('vote-ui').style.display = 'block';
+  document.getElementById('results-panel').style.display = 'block';
+}
+
+async function saveVotes() {
+  if (!config) return false;
+  try {
+    const res = await fetch('https://api.jsonbin.io/v3/b/' + config.binId, {
+      method: 'PUT',
+      headers: { 'Content-Type': 'application/json', 'X-Master-Key': config.apiKey },
+      body: JSON.stringify({ votes: allVotes })
+    });
+    return res.ok;
+  } catch(e) { return false; }
+}
+
+// ─── RENDER VOTE UI ───────────────────────────────────────────
+function renderVoteUI() {
+  // Name buttons
+  const nameRow = document.getElementById('name-row');
+  nameRow.innerHTML = '';
+  NAMES.forEach(name => {
+    const btn = document.createElement('button');
+    btn.className = 'name-btn' + (currentName === name ? ' active' : '');
+    btn.textContent = name;
+    btn.onclick = () => selectName(name);
+    nameRow.appendChild(btn);
+  });
+
+  // Vote items
+  const grid = document.getElementById('vote-grid');
+  grid.innerHTML = '';
+  ACTIVITIES.forEach((a, i) => {
+    const myV = myVotes[i] || null;
+    const item = document.createElement('div');
+    item.className = 'vote-item';
+    item.id = 'vote-item-' + i;
+
+    // Count votes from all users
+    const counts = { yes: [], maybe: [], no: [] };
+    Object.entries(allVotes).forEach(([voter, votes]) => {
+      const v = votes[i];
+      if (v && counts[v]) counts[v].push(voter);
+    });
+
+    const tallyHTML = [
+      counts.yes.length ? `<span class="tally-chip tally-yes" title="${counts.yes.join(', ')}">Yes: ${counts.yes.length}</span>` : '',
+      counts.maybe.length ? `<span class="tally-chip tally-maybe" title="${counts.maybe.join(', ')}">Maybe: ${counts.maybe.length}</span>` : '',
+      counts.no.length ? `<span class="tally-chip tally-no" title="${counts.no.join(', ')}">Pass: ${counts.no.length}</span>` : '',
+    ].join('');
+
+    item.innerHTML = `
+      <div class="vote-item-name">${a.name}</div>
+      <div class="vote-item-day">${a.day}</div>
+      <div class="vote-buttons">
+        <button class="vote-btn yes${myV==='yes'?' active':''}" onclick="castVote(${i},'yes',this)">Yes!</button>
+        <button class="vote-btn maybe${myV==='maybe'?' active':''}" onclick="castVote(${i},'maybe',this)">Maybe</button>
+        <button class="vote-btn no${myV==='no'?' active':''}" onclick="castVote(${i},'no',this)">Pass</button>
+      </div>
+      <div class="vote-tally">${tallyHTML}</div>
+    `;
+    grid.appendChild(item);
+  });
+}
+
+function selectName(name) {
+  currentName = name;
+  // Load any existing votes for this person
+  myVotes = allVotes[name] ? Object.assign({}, allVotes[name]) : {};
+  renderVoteUI();
+  document.getElementById('vote-status').textContent = 'Voting as: ' + name;
+}
+
+function castVote(idx, val, btn) {
+  if (!currentName) {
+    document.getElementById('vote-status').textContent = 'Pick your name above first!';
+    return;
+  }
+  myVotes[idx] = val;
+  const btns = btn.parentElement.querySelectorAll('.vote-btn');
+  btns.forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+}
+
+async function submitVotes() {
+  if (!currentName) { document.getElementById('vote-status').textContent = 'Pick your name above first!'; return; }
+  if (Object.keys(myVotes).length === 0) { document.getElementById('vote-status').textContent = 'Vote on some activities first!'; return; }
+  document.getElementById('vote-status').textContent = 'Saving...';
+  allVotes[currentName] = Object.assign({}, myVotes);
+  const ok = await saveVotes();
+  if (ok) {
+    document.getElementById('vote-status').textContent = currentName + "'s votes saved!";
+    renderVoteUI();
+    renderResults();
+    const rc = document.getElementById('results-content');
+    if (!rc.classList.contains('visible')) { rc.classList.add('visible'); }
+    rc.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  } else {
+    document.getElementById('vote-status').textContent = 'Save failed — check your API key setup.';
+  }
+}
+
+// ─── RESULTS ──────────────────────────────────────────────────
+function renderResults() {
+  const container = document.getElementById('results-inner');
+  const voterNames = Object.keys(allVotes);
+  const total = voterNames.length;
+
+  if (total === 0) {
+    container.innerHTML = '<p style="text-align:center;color:rgba(250,247,242,0.4);font-size:14px;padding:20px 0;">No votes yet — be the first!</p>';
+    return;
+  }
+
+  container.innerHTML = ACTIVITIES.map((a, i) => {
+    const counts = { yes: [], maybe: [], no: [] };
+    voterNames.forEach(voter => {
+      const v = allVotes[voter][i];
+      if (v && counts[v]) counts[v].push(voter);
+    });
+    const maxCount = Math.max(counts.yes.length, counts.maybe.length, counts.no.length, 1);
+    const yPct = Math.round((counts.yes.length / maxCount) * 100);
+    const mPct = Math.round((counts.maybe.length / maxCount) * 100);
+    const nPct = Math.round((counts.no.length / maxCount) * 100);
+
+    const allNames = [...counts.yes, ...counts.maybe, ...counts.no];
+    const missing = voterNames.filter(n => !allNames.includes(n));
+
+    return `
+      <div class="result-row">
+        <div class="result-activity">${a.name}</div>
+        <div class="result-bar-row"><span class="result-label">Yes!</span><div class="result-bar-bg"><div class="result-bar-fill fill-yes" style="width:${yPct}%"></div></div><span class="result-count">${counts.yes.length}</span></div>
+        <div class="result-bar-row"><span class="result-label">Maybe</span><div class="result-bar-bg"><div class="result-bar-fill fill-maybe" style="width:${mPct}%"></div></div><span class="result-count">${counts.maybe.length}</span></div>
+        <div class="result-bar-row"><span class="result-label">Pass</span><div class="result-bar-bg"><div class="result-bar-fill fill-no" style="width:${nPct}%"></div></div><span class="result-count">${counts.no.length}</span></div>
+        ${counts.yes.length ? `<div class="result-voters">Excited: ${counts.yes.join(', ')}</div>` : ''}
+      </div>`;
+  }).join('');
+}
+
+function toggleResults() {
+  const rc = document.getElementById('results-content');
+  const btn = document.querySelector('.results-toggle');
+  rc.classList.toggle('visible');
+  btn.textContent = rc.classList.contains('visible') ? "Hide votes" : "See everyone's votes";
+}
+</script>
+</body>
+</html>
